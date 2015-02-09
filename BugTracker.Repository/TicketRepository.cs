@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using BugTracker.Helpers.Enums;
 namespace BugTracker.Repository
 {
-   public class TicketRepository : ITicketRepository
+    public class TicketRepository : ITicketRepository
     {
         PeopleRepository peopleRepository;
         CommentRepository commentRepository;
@@ -32,13 +32,13 @@ namespace BugTracker.Repository
                     Description ="Sprint 1 Back-end planning",
                     EndDate = new DateTime(2015,02,07)
                 },
-                Status = Status.Todo,
+                Status = Status.To_Do,
                 Resolution = Resolution.Unresolved,
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
+                Reporter = peopleRepository.people.Where(x => x.IdPeople == 3).First(),
                 Comments = commentRepository.comments.Where(x=> x.IdTicket == 1).ToList() 
             },
              new Ticket
@@ -54,13 +54,13 @@ namespace BugTracker.Repository
                     Description ="Sprint 1 Back-end planning",
                     EndDate = new DateTime(2015,02,07)
                 },
-                Status = Status.Todo,
+                Status = Status.To_Do,
                 Resolution = Resolution.Unresolved,
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
+                Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
                 Comments = commentRepository.comments.Where(x=> x.IdTicket == 2).ToList() 
             }
         };

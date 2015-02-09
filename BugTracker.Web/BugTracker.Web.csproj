@@ -72,7 +72,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\css\bootstrap-theme.css" />
+    <Content Include="app\css\bootstrap-theme.min.css" />
     <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\bootstrap.min.css" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\1.JPG" />
     <Content Include="app\img\2.JPG" />
     <Content Include="app\img\3.JPG" />
@@ -82,7 +86,10 @@
     <Content Include="app\js\angular.js" />
     <Content Include="app\js\angular.min.js" />
     <Content Include="app\js\app.js" />
+    <Content Include="app\js\bootstrap.js" />
+    <Content Include="app\js\bootstrap.min.js" />
     <Content Include="app\js\controller.js" />
+    <Content Include="app\js\npm.js" />
     <Content Include="app\partialsViews\login.html" />
     <Content Include="app\partialsViews\ticketDetail.html" />
     <Content Include="app\partialsViews\ticketsList.html" />
@@ -91,7 +98,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -100,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="app\css\bootstrap-theme.css.map" />
+    <Content Include="app\css\bootstrap.css.map" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,6 +130,10 @@
     <ProjectReference Include="..\BugTracker.Entities\BugTracker.Entities.csproj">
       <Project>{8fae8a80-f7c5-4e8a-a682-9f9b4ed632b1}</Project>
       <Name>BugTracker.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BugTracker.Helpers\BugTracker.Helpers.csproj">
+      <Project>{25660b49-519c-4082-8d10-a752267d3810}</Project>
+      <Name>BugTracker.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\BugTracker.Repository\BugTracker.Repository.csproj">
       <Project>{dc65247e-e3b4-4295-ab45-52bef7247f52}</Project>

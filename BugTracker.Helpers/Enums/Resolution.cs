@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Helpers.Enums
 {
-   public  enum Resolution   { Unresolved, Fixed  };
+    public enum Resolution { Unresolved, Fixed };
 }

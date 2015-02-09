@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Helpers.Enums
 {
-   public  enum TypeTicket { Task, Bug };   
+    public enum TypeTicket { Task, Bug };
 }

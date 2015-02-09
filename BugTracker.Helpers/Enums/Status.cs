@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Helpers.Enums
 {
- public   enum Status    { Todo ,Resolved    };
+    public enum Status { To_Do, Resolved, In_Progress, Ready_for_testing, Test_in_progress, Done };
 }
