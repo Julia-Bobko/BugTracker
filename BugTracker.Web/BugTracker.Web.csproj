@@ -72,6 +72,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\img\1.JPG" />
+    <Content Include="app\img\2.JPG" />
+    <Content Include="app\img\3.JPG" />
+    <Content Include="app\img\4.JPG" />
+    <Content Include="app\img\5.JPG" />
+    <Content Include="app\js\angular-route.js" />
+    <Content Include="app\js\angular.js" />
+    <Content Include="app\js\angular.min.js" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\controller.js" />
+    <Content Include="app\partialsViews\login.html" />
+    <Content Include="app\partialsViews\ticketDetail.html" />
+    <Content Include="app\partialsViews\ticketsList.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Web.config" />

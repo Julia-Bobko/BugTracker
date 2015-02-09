@@ -14,31 +14,31 @@ namespace BugTracker.Repository
         {
             IdPeople =1,
             FullName ="Shitov",
-            Image = ""
+            Image = "app/img/1.jpg"
         },
         new People 
         {
             IdPeople = 2,
             FullName ="Yarov",
-            Image=""
+             Image = "app/img/2.jpg"
         },
         new People 
         {
             IdPeople=3,
             FullName = "Сhernov",
-            Image =""
+             Image = "app/img/3.jpg"
         },
         new People 
         {
             IdPeople = 4,
             FullName = "Belyaeva",
-            Image=""
+             Image = "app/img/4.jpg"
         },
         new People
         {
             IdPeople = 5,
             FullName ="Schukin",
-            Image =""
+            Image = "app/img/5.jpg"
         }
        };
          
