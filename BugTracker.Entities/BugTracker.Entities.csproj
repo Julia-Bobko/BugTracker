@@ -41,15 +41,13 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="People.cs" />
+    <Compile Include="Priority.cs" />
+    <Compile Include="Resolution.cs" />
     <Compile Include="Sprint.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BugTracker.Helpers\BugTracker.Helpers.csproj">
-      <Project>{25660b49-519c-4082-8d10-a752267d3810}</Project>
-      <Name>BugTracker.Helpers</Name>
-    </ProjectReference>
+    <Compile Include="TypeTicket.cs" />
+    <Compile Include="Status.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BugTracker.Helpers.Enums;
 namespace BugTracker.Entities
 {
     public class Ticket
     {
-        public int idTicket { get; set; }
+        public string idTicket { get; set; }
         public string Title { get; set; }
         public TypeTicket Type { get; set; }
         public Priority Priority { get; set; }

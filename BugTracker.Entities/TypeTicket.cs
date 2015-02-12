@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Entities
 {
-    public class People
+   public  class TypeTicket
     {
-        public int IdPeople { get; set; }
-        public string FullName { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
         public string Image { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
     }
 }
