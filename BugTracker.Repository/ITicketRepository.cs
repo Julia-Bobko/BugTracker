@@ -10,7 +10,7 @@ namespace BugTracker.Repository
     public interface ITicketRepository
     {
         IEnumerable<Ticket> GetAll();
-        Ticket Get(int id);
+        Ticket Get(string id);
         bool Update(Ticket item);
     }
 }

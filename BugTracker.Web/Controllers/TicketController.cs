@@ -18,7 +18,7 @@ namespace BugTracker.Web.Controllers
             return repo.GetAll();
         }
 
-        public Ticket GetTicket(int id)
+        public Ticket GetTicket(string id)
         {
             return repo.Get(id);
         }

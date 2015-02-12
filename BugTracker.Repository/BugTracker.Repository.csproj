@@ -42,17 +42,17 @@
     <Compile Include="CommentRepository.cs" />
     <Compile Include="ITicketRepository.cs" />
     <Compile Include="PeopleRepository.cs" />
+    <Compile Include="PriorityRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResolutionRepository.cs" />
+    <Compile Include="StatusRepository.cs" />
     <Compile Include="TicketRepository.cs" />
+    <Compile Include="TypeTicketRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Entities\BugTracker.Entities.csproj">
       <Project>{8fae8a80-f7c5-4e8a-a682-9f9b4ed632b1}</Project>
       <Name>BugTracker.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BugTracker.Helpers\BugTracker.Helpers.csproj">
-      <Project>{25660b49-519c-4082-8d10-a752267d3810}</Project>
-      <Name>BugTracker.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

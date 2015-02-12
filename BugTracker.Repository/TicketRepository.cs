@@ -4,27 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BugTracker.Helpers.Enums;
+
 namespace BugTracker.Repository
 {
     public class TicketRepository : ITicketRepository
     {
+        List<Ticket> tickets;
         PeopleRepository peopleRepository;
         CommentRepository commentRepository;
-        private List<Ticket> tickets;
+        StatusRepository statusRepository;
+        ResolutionRepository resolutionRepository;
+        TypeTicketRepository typeTicketRepository;
+        PriorityRepository priorityRepository;
+  
         TicketRepository()
         {
             peopleRepository = new PeopleRepository();
             commentRepository = new CommentRepository();
+            statusRepository = new StatusRepository();
+            resolutionRepository = new ResolutionRepository();
+            typeTicketRepository = new TypeTicketRepository();
+            priorityRepository = new PriorityRepository();
 
             tickets = new List<Ticket>
         {
             new Ticket
             {
-                idTicket = 1,
+                idTicket = "GAR-1",
                 Title = "Create Gerber .Net API Documentation",
-                Type = TypeTicket.Task,
-                Priority = Priority.Minor,
+                Type = typeTicketRepository.typeTickets[0],
+                Priority = priorityRepository.priorities[0],
                 Labels = "None",
                 Sprint = new Sprint
                 {
@@ -32,21 +41,21 @@ namespace BugTracker.Repository
                     Description ="Sprint 1 Back-end planning",
                     EndDate = new DateTime(2015,02,07)
                 },
-                Status = Status.To_Do,
-                Resolution = Resolution.Unresolved,
+                Status = statusRepository.statuses[0],
+                Resolution = resolutionRepository.resolutions[0],
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 3).First(),
-                Comments = commentRepository.comments.Where(x=> x.IdTicket == 1).ToList() 
+                Comments = commentRepository.comments.Where(x=> x.IdTicket == 1).ToList()                
             },
              new Ticket
             {
-                idTicket = 2,
+                idTicket = "GAR-4",
                 Title = "Add file.txt to site",
-                Type = TypeTicket.Bug,
-                Priority = Priority.Blocker,
+                Type = typeTicketRepository.typeTickets[1],
+                Priority = priorityRepository.priorities[1],
                 Labels = "None",
                 Sprint = new Sprint
                 {
@@ -54,15 +63,60 @@ namespace BugTracker.Repository
                     Description ="Sprint 1 Back-end planning",
                     EndDate = new DateTime(2015,02,07)
                 },
-                Status = Status.To_Do,
-                Resolution = Resolution.Unresolved,
+                Status = statusRepository.statuses[3],
+                Resolution =resolutionRepository.resolutions[1],
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
-                Description = "fghjhjkjr",
+                Description = "rtjn mikk vfbg tarket nj",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
                 Comments = commentRepository.comments.Where(x=> x.IdTicket == 2).ToList() 
+            },
+             new Ticket
+            {
+                idTicket = "GAR-2",
+                Title = "hjhjlklkm",
+                Type = typeTicketRepository.typeTickets[1],
+                Priority = priorityRepository.priorities[1],
+                Labels = "None",
+                Sprint = new Sprint
+                {
+                    IdSprint=1,
+                    Description ="Sprint 1 Back-end planning",
+                    EndDate = new DateTime(2015,02,07)
+                },
+                Status = statusRepository.statuses[5],
+                Resolution = resolutionRepository.resolutions[1],
+                DateCreated = new DateTime(2015,01,19),
+                DateUpdated = new DateTime(2015,01,19),
+                Description = "fghjhjkjr",
+                Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
+                Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
+                Comments = commentRepository.comments.Where(x=> x.IdTicket == 3).ToList() 
+            },
+            new Ticket
+            {
+                idTicket = "GAR-15",
+                Title = "jkkm.,,",
+                Type = typeTicketRepository.typeTickets[0],
+                Priority = priorityRepository.priorities[0],
+                Labels = "None",
+                Sprint = new Sprint
+                {
+                    IdSprint=1,
+                    Description ="Sprint 1 Back-end planning",
+                    EndDate = new DateTime(2015,02,07)
+                },
+                Status = statusRepository.statuses[3],
+                Resolution = resolutionRepository.resolutions[0],
+                DateCreated = new DateTime(2015,01,19),
+                DateUpdated = new DateTime(2015,01,19),
+                Description = "fghjhjkjr",
+                Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
+                Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
+                Comments = commentRepository.comments.Where(x=> x.IdTicket == 3).ToList() 
             }
+
         };
         }
         private static TicketRepository repo = new TicketRepository();
@@ -77,7 +131,7 @@ namespace BugTracker.Repository
             return tickets;
         }
 
-        public Ticket Get(int id)
+        public Ticket Get(string id)
         {
             var matches = tickets.Where(x => x.idTicket == id);
             return matches.Count() > 0 ? matches.First() : null;

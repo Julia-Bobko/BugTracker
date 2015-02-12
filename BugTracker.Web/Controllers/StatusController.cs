@@ -1,4 +1,5 @@
-﻿using BugTracker.Helpers;
+﻿using BugTracker.Entities;
+using BugTracker.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,13 @@ namespace BugTracker.Web.Controllers
 {
     public class StatusController : ApiController
     {
-        private StatusHelper statusHelper;
-        public StatusController()
-        {
-            statusHelper = new StatusHelper();
+        StatusRepository repo;
+        StatusController() {
+            repo = new StatusRepository();
         }
-        public List<string> GetStatus()
+        public List<Status> GetStatus()
         {
-            return statusHelper.GetStatus();
+            return repo.GetStatuses();
         }
     }
 }
