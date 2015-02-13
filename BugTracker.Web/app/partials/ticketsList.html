@@ -1,0 +1,32 @@
+﻿<div class="container">
+    <div class="panel-heading h3">
+        {{tickets[1].Sprint.Description}}
+    </div>
+    <div class="row">
+        <div ng-repeat="status in statuses">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status">
+                <p>{{status.Title}} </p>
+                <div ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}} ">
+                    <div class="div-left">
+                    </div>
+                    <div class="row move div-ticket">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-null">
+                            <img class="ticket-type-img" ng-src="{{ticket.Type.Image}}" />
+                            <img class="ticket-priority-img" ng-src="{{ticket.Priority.Image}}" />
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding-null">
+                            <a href="#/tickets/{{ticket.idTicket}}">{{ticket.idTicket}}</a>
+                            <p >{{ticket.Title}}</p>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-null">
+                            <img class="ticket-img-reporter" ng-src="{{ticket.Reporter.Image}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

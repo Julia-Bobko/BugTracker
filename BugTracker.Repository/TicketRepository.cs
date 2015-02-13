@@ -76,7 +76,7 @@ namespace BugTracker.Repository
             {
                 idTicket = "GAR-2",
                 Title = "hjhjlklkm",
-                Type = typeTicketRepository.typeTickets[1],
+                Type = typeTicketRepository.typeTickets[0],
                 Priority = priorityRepository.priorities[1],
                 Labels = "None",
                 Sprint = new Sprint
@@ -113,7 +113,7 @@ namespace BugTracker.Repository
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
+                Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
                 Comments = commentRepository.comments.Where(x=> x.IdTicket == 3).ToList() 
             }
 

@@ -19,7 +19,7 @@ namespace BugTracker.Repository
             new Status
             {
                 Id =2,
-                Title ="Resolved"
+                Title ="Blocked"
             },
             new Status
             {

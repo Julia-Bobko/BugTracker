@@ -76,7 +76,6 @@
     <Content Include="app\css\bootstrap-theme.min.css" />
     <Content Include="app\css\bootstrap.css" />
     <Content Include="app\css\bootstrap.min.css" />
-    <Content Include="app\img\bug.JPG" />
     <Content Include="app\css\main.css" />
     <Content Include="app\css\navcss.css" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
@@ -85,7 +84,8 @@
     <Content Include="app\img\3.JPG" />
     <Content Include="app\img\4.JPG" />
     <Content Include="app\img\5.JPG" />
-    <Content Include="app\img\major.JPG" />
+    <Content Include="app\img\bug.JPG" />
+    <Content Include="app\img\major.jpg" />
     <Content Include="app\img\minor.JPG" />
     <Content Include="app\img\task.JPG" />
     <Content Include="app\js\angular-route.js" />
@@ -96,6 +96,7 @@
     <Content Include="app\js\bootstrap.min.js" />
     <Content Include="app\js\controller.js" />
     <Content Include="app\js\npm.js" />
+    <Content Include="app\js\ticketMoving.js" />
     <Content Include="app\partials\login.html" />
     <Content Include="app\partials\ticketDetail.html" />
     <Content Include="app\partials\ticketsList.html" />
@@ -105,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Global.asax.cs">

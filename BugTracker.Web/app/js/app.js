@@ -5,15 +5,15 @@ moduleApp.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider.
           when('/login', {
-              templateUrl: 'app/partialsViews/login.html',
+              templateUrl: 'app/partials/login.html',
               controller: 'LoginCtrl'
           }).
           when('/tickets', {
-              templateUrl: 'app/partialsViews/ticketsList.html',
+              templateUrl: 'app/partials/ticketsList.html',
               controller: 'TicketsListCtrl'
           }).
            when('/tickets/:ticketId', {
-               templateUrl: 'app/partialsViews/ticketDetail.html',
+               templateUrl: 'app/partials/ticketDetail.html',
                controller: 'TicketDetailCtrl'
            }).
           otherwise({

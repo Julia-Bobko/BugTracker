@@ -1,0 +1,44 @@
+﻿.ticket-img-reporter {
+    margin: 4px 4px 3px 2px;
+    width: 20px;
+}
+
+.move {
+    cursor: move;
+}
+
+.move:hover {
+        cursor: move;
+        background-color: #EDECEC;
+    }
+
+.padding-null {
+    padding: 0px;
+}
+
+.status {
+    padding-right: 0px;
+}
+
+.div-ticket {
+    height: 80px;
+    border: 1px solid #cccccc;
+    margin: 0px;
+}
+
+.div-left {
+    background-color: red;
+    width: 5px;
+    height: 80px;
+    float: left;
+}
+
+.ticket-type-img {
+    margin: 2px;
+    height: 16px;
+    width: 16px;
+}
+
+.ticket-priority-img {
+    padding: 2px;
+}
