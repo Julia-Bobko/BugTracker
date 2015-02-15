@@ -33,7 +33,6 @@
 }
 
 .div-left {
-    background-color: red;
     width: 5px;
     height: 80px;
     float: left;
@@ -50,9 +49,9 @@
 }
 
 .bin {
-    float: left;  
+    float: left;
     width: 100%;
-    background-color: #F5F5F5;   
+    background-color: #F5F5F5;
 }
 
 .item {
@@ -70,4 +69,12 @@
 
 .done {
     text-decoration: line-through;
+}
+
+.red {
+    background-color: red;
+}
+
+.agua {
+    background-color: aqua;
 }

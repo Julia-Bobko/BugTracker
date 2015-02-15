@@ -6,8 +6,8 @@
         <div ng-repeat="status in statuses" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status">
             <p>{{status.Title}} </p>
             <div class="bin" id="{{status.Title}}" droppable>
-                <div class="move" ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}}" draggable id="{{ticket.idTicket}}">
-                    <div class="div-left">
+                <div class="move" ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}}"  draggable id="{{ticket.idTicket}}">
+                    <div class="div-left" ng-class="{red : ticket.Type.Title=='Bug', agua: ticket.Type.Title=='Task'}"  id="{{ticket.Type.Title}}">
                     </div>
                     <div class="row div-ticket item">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-null">

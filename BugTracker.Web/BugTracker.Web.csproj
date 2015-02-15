@@ -77,7 +77,6 @@
     <Content Include="app\css\bootstrap.css" />
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\main.css" />
-    <Content Include="app\css\navcss.css" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\1.JPG" />
     <Content Include="app\img\2.JPG" />
