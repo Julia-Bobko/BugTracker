@@ -8,14 +8,10 @@
     cursor: move;
 }
 
-.ss {
-    background-color: red;
-}
-
-.move:hover {
-    cursor: move;
-    background-color: #EDECEC;
-}
+    .move:hover {
+        cursor: move;
+        background-color: #EDECEC;
+    }
 
 .padding-null {
     padding: 0px;
@@ -77,4 +73,8 @@
 
 .agua {
     background-color: aqua;
+}
+
+.ticket-title {
+    line-height: 1;
 }

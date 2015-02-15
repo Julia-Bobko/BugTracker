@@ -6,8 +6,8 @@
         <div ng-repeat="status in statuses" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status">
             <p>{{status.Title}} </p>
             <div class="bin" id="{{status.Title}}" droppable>
-                <div class="move" ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}}"  draggable id="{{ticket.idTicket}}">
-                    <div class="div-left" ng-class="{red : ticket.Type.Title=='Bug', agua: ticket.Type.Title=='Task'}"  id="{{ticket.Type.Title}}">
+                <div class="move" ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}}" draggable id="{{ticket.idTicket}}">
+                    <div class="div-left" ng-class="{red : ticket.Type.Title=='Bug', agua: ticket.Type.Title=='Task'}" id="{{ticket.Type.Title}}">
                     </div>
                     <div class="row div-ticket item">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-null">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding-null">
                             <a href="#/tickets/{{ticket.idTicket}}" ng-class="ticket.Status.Title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
-                            <p>{{ticket.Title}}</p>
+                            <p class="ticket-title">{{ticket.Title}}</p>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-null">
                             <img class="ticket-img-reporter" ng-src="{{ticket.Reporter.Image}}">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 
 
