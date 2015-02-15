@@ -1,5 +1,5 @@
 ﻿
-var moduleApp = angular.module('moduleApp', ['ngRoute', 'controllersApp']);
+var moduleApp = angular.module('moduleApp', ['ngRoute', 'controllersApp', 'dragDrop']);
 
 moduleApp.config(['$routeProvider',
   function ($routeProvider) {
@@ -20,3 +20,4 @@ moduleApp.config(['$routeProvider',
               redirectTo: '/tickets'
           });
   }]);
+

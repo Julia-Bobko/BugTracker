@@ -46,5 +46,10 @@ namespace BugTracker.Repository
         {
             return statuses;
         }
+
+        public Status GetStatus(string title)
+        {
+          return  GetStatuses().Where(x => x.Title == title).First(); 
+        }
     }
 }

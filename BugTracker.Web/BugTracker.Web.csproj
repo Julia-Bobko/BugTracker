@@ -95,8 +95,9 @@
     <Content Include="app\js\bootstrap.js" />
     <Content Include="app\js\bootstrap.min.js" />
     <Content Include="app\js\controller.js" />
+    <Content Include="app\js\dragDrop.js" />
     <Content Include="app\js\npm.js" />
-    <Content Include="app\js\ticketMoving.js" />
+    <Content Include="app\js\utility.js" />
     <Content Include="app\partials\login.html" />
     <Content Include="app\partials\ticketDetail.html" />
     <Content Include="app\partials\ticketsList.html" />

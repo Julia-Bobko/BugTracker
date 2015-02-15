@@ -16,7 +16,7 @@ namespace BugTracker.Repository
         ResolutionRepository resolutionRepository;
         TypeTicketRepository typeTicketRepository;
         PriorityRepository priorityRepository;
-  
+
         TicketRepository()
         {
             peopleRepository = new PeopleRepository();
@@ -64,7 +64,7 @@ namespace BugTracker.Repository
                     EndDate = new DateTime(2015,02,07)
                 },
                 Status = statusRepository.statuses[3],
-                Resolution =resolutionRepository.resolutions[1],
+                Resolution = resolutionRepository.resolutions[1],
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "rtjn mikk vfbg tarket nj",
@@ -107,7 +107,7 @@ namespace BugTracker.Repository
                     Description ="Sprint 1 Back-end planning",
                     EndDate = new DateTime(2015,02,07)
                 },
-                Status = statusRepository.statuses[3],
+                Status = statusRepository.statuses[5],
                 Resolution = resolutionRepository.resolutions[0],
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
@@ -140,7 +140,7 @@ namespace BugTracker.Repository
         public bool Update(Ticket item)
         {
             Ticket ticket = Get(item.idTicket);
-            if (ticket != null)
+            if (ticket != null && item.Status.Id != 0)
             {
                 ticket.Title = item.Title;
                 ticket.Type = item.Type;
@@ -158,10 +158,13 @@ namespace BugTracker.Repository
                 ticket.Comments = item.Comments;
                 return true;
             }
-            else
+            else if (ticket != null)
             {
-                return false;
+                Status status = statusRepository.GetStatus(item.Status.Title);
+                ticket.Status = statusRepository.statuses.Where(x => x.Id == status.Id).First();
+                return true;
             }
+            else { return false; }
         }
     }
 }

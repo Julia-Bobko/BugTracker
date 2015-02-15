@@ -8,6 +8,7 @@ controllersApp.controller('TicketsListCtrl', ['$scope', '$http', function ($scop
     $http.get('/api/status').success(function (data) {
         $scope.statuses = data;
     });
+    
 }]);
 
 controllersApp.controller('TicketDetailCtrl', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {

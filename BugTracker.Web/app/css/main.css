@@ -1,16 +1,21 @@
 ﻿.ticket-img-reporter {
     margin: 4px 4px 3px 2px;
     width: 20px;
+    height: 24px;
 }
 
 .move {
     cursor: move;
 }
 
+.ss {
+    background-color: red;
+}
+
 .move:hover {
-        cursor: move;
-        background-color: #EDECEC;
-    }
+    cursor: move;
+    background-color: #EDECEC;
+}
 
 .padding-null {
     padding: 0px;
@@ -24,6 +29,7 @@
     height: 80px;
     border: 1px solid #cccccc;
     margin: 0px;
+    background-color: white;
 }
 
 .div-left {
@@ -41,4 +47,27 @@
 
 .ticket-priority-img {
     padding: 2px;
+}
+
+.bin {
+    float: left;  
+    width: 100%;
+    background-color: #F5F5F5;   
+}
+
+.item {
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.drag {
+    opacity: 0.5;
+}
+
+.over {
+    background: #E2D8D8;
+}
+
+.done {
+    text-decoration: line-through;
 }
