@@ -52,5 +52,25 @@ namespace BugTracker.Repository
         }
        };
 
+        public bool IsUser(string fullname)
+        {
+            var matches = people.Where(x => x.FullName == fullname);
+            return matches.Count() > 0 ? true : false;
+        }
+
+        public void CreateAccount(People user)
+        {
+           if (!IsUser(user.FullName))
+            {
+                user.IdPeople = people.Count + 1;
+                people.Add(user);               
+            }           
+        }
+
+        public bool LogIn(string fullName, string password) 
+        {
+            var matches = people.Where(x => x.FullName == fullName && x.Password==password);
+            return matches.Count() > 0 ? true : false;          
+        }
     }
 }

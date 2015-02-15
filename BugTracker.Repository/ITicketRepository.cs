@@ -11,6 +11,6 @@ namespace BugTracker.Repository
     {
         IEnumerable<Ticket> GetAll();
         Ticket Get(string id);
-        bool Update(Ticket item);
+        bool Update(Ticket item);     
     }
 }
