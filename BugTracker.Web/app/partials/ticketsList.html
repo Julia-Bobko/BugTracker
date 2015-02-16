@@ -1,25 +1,25 @@
 ﻿<div class="container">
     <div class="panel-heading h3">
-        {{tickets[1].Sprint.Description}}
+        {{tickets[1].sprint.description}}
     </div>
     <div class="row">
         <div ng-repeat="status in statuses" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status">
-            <p>{{status.Title}} </p>
-            <div class="bin" id="{{status.Title}}" droppable>
-                <div class="move" ng-repeat="ticket in tickets | filter :{Status:{Id:status.Id,Title:status.Title}}" draggable id="{{ticket.idTicket}}">
-                    <div class="div-left" ng-class="{red : ticket.Type.Title=='Bug', agua: ticket.Type.Title=='Task'}" id="{{ticket.Type.Title}}">
+            <p>{{status.title}} </p>
+            <div class="bin" id="{{status.title}}" droppable>
+                <div class="move" ng-repeat="ticket in tickets | filter :{status:{id:status.id,title:status.title}}" draggable id="{{ticket.idTicket}}">
+                    <div class="div-left" ng-class="{red : ticket.type.title=='Bug', agua: ticket.type.title=='Task'}" id="{{ticket.type.title}}">
                     </div>
                     <div class="row div-ticket item">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-null">
-                            <img class="ticket-type-img" ng-src="{{ticket.Type.Image}}" />
-                            <img class="ticket-priority-img" ng-src="{{ticket.Priority.Image}}" />
+                            <img class="ticket-type-img" ng-src="{{ticket.type.image}}" />
+                            <img class="ticket-priority-img" ng-src="{{ticket.priority.image}}" />
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding-null">
-                            <a href="#/tickets/{{ticket.idTicket}}" ng-class="ticket.Status.Title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
-                            <p class="ticket-title">{{ticket.Title}}</p>
+                            <a href="#/tickets/{{ticket.idTicket}}" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
+                            <p class="ticket-title">{{ticket.title}}</p>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-null">
-                            <img class="ticket-img-reporter" ng-src="{{ticket.Reporter.Image}}">
+                            <img class="ticket-img-reporter" ng-src="{{ticket.reporter.image}}">
                         </div>
                     </div>
                 </div>

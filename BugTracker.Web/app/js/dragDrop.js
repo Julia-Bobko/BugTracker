@@ -54,7 +54,7 @@ dragDrop.directive('droppable', ['$http', function ($http) {
                 }
                 var tick = {
                     idTicket: item.id,
-                    Status: { "Title": binId }
+                    Status: { "title": binId }
                 };
                 $http.put('/api/ticket/', tick).success(function (data) {
                 });
