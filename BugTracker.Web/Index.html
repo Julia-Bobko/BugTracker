@@ -4,17 +4,36 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="app/js/angular.js"></script>
-    <script src="app/js/angular-route.js"></script>
+    <script src="app/js/angular-ui-router.min.js"></script>
     <script src="app/js/app.js"></script>
-    <script src="app/js/dragDrop.js"></script>
-    <script src="app/js/controller.js"></script>
+    <script src="app/js/directives/draggableDirective.js"></script>
+    <script src="app/js/directives/droppableDirective.js"></script>
     <link href="app/css/bootstrap.min.css" rel="stylesheet" />
     <link href="app/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="app/css/main.css" rel="stylesheet" />
-    <script src="app/js/bootstrap.min.js"></script>  
     <script src="app/js/utility.js"></script>   
+    <script src="app/js/controllers/controller.js"></script>
+    <script src="app/js/controllers/statusController.js"></script>
+    <script src="app/js/controllers/ticketController.js"></script>
+    <script src="app/js/services/ticketService.js"></script>
+    <script src="app/js/services/statusService.js"></script>
 </head>
-<body>        
-       <div ng-view></div>   
+<body>
+    <div>
+        <div class="panel-heading panel-border"> </div>
+        <div class="nav-fixed">
+            <div class="nav-absolute">
+                <a ui-sref="about"><img class="img-width" src="app/img/s.jpg" /></a>
+                <a ui-sref="about" class="a-border-bottom"><img src="app/img/q.jpg" /> </a>
+                <a ui-sref="tickets"><img src="app/img/w.jpg" /> </a>
+                <a ui-sref="about"><img src="app/img/e.jpg" /> </a>
+                <a ui-sref="about"><img src="app/img/r.jpg" /> </a>
+                <a ui-sref="about"><img src="app/img/y.jpg" /> </a>
+                <a ui-sref="about" class="a-border-bottom"> <img src="app/img/u.jpg" /> </a>
+                <a class="a-futer"><img src="app/img/a.jpg" /> </a>
+            </div>
+        </div>
+        <div class="div-margin" ui-view></div>
+    </div>
 </body>
 </html>

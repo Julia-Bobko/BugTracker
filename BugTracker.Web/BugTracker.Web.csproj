@@ -83,26 +83,37 @@
     <Content Include="app\img\3.JPG" />
     <Content Include="app\img\4.JPG" />
     <Content Include="app\img\5.JPG" />
+    <Content Include="app\img\a.jpg" />
     <Content Include="app\img\bug.JPG" />
+    <Content Include="app\img\e.jpg" />
     <Content Include="app\img\major.jpg" />
     <Content Include="app\img\minor.JPG" />
+    <Content Include="app\img\q.jpg" />
+    <Content Include="app\img\r.jpg" />
+    <Content Include="app\img\s.jpg" />
     <Content Include="app\img\task.JPG" />
-    <Content Include="app\js\angular-route.js" />
+    <Content Include="app\img\u.jpg" />
+    <Content Include="app\img\w.jpg" />
+    <Content Include="app\img\y.jpg" />
+    <Content Include="app\js\angular-ui-router.min.js" />
     <Content Include="app\js\angular.js" />
-    <Content Include="app\js\angular.min.js" />
     <Content Include="app\js\app.js" />
-    <Content Include="app\js\bootstrap.js" />
-    <Content Include="app\js\bootstrap.min.js" />
-    <Content Include="app\js\controller.js" />
-    <Content Include="app\js\dragDrop.js" />
-    <Content Include="app\js\npm.js" />
+    <Content Include="app\js\controllers\controller.js" />
+    <Content Include="app\js\controllers\statusController.js" />
+    <Content Include="app\js\controllers\ticketController.js" />
+    <Content Include="app\js\directives\draggableDirective.js" />
+    <Content Include="app\js\directives\droppableDirective.js" />
+    <Content Include="app\js\services\statusService.js" />
+    <Content Include="app\js\services\ticketService.js" />
     <Content Include="app\js\utility.js" />
     <Content Include="app\partials\login.html" />
     <Content Include="app\partials\ticketDetail.html" />
     <Content Include="app\partials\ticketsList.html" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -122,6 +133,7 @@
     <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\js\angular.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,6 +142,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\js\filters\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -158,7 +171,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1556</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1556/</IISUrl>
+          <IISUrl>http://localhost:1555/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

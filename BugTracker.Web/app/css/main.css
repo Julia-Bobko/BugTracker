@@ -78,3 +78,42 @@
 .ticket-title {
     line-height: 1;
 }
+
+.panel-border {
+    height: 80px;
+    border-bottom: 2px solid black;
+}
+
+.nav-fixed {
+    bottom: 0px;
+    position: fixed;
+    top: 0;
+    top: 80px;
+}
+
+.nav-absolute {
+    background: #f2f2f2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.img-width {
+    width: 70px;
+}
+
+.a-border-bottom {
+    border-bottom: 1px solid #ebeaea;
+}
+
+.a-futer {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    border-bottom: 0;
+    border-top: 1px solid #ebeaea;
+}
+
+.div-margin {
+    margin-left: 90px;
+}
