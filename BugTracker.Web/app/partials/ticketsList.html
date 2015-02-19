@@ -1,4 +1,4 @@
-﻿<div class="container">
+﻿<div class="container" ng-controller="StatusCtrl">
     <div class="panel-heading h3">
         {{tickets[1].sprint.description}}
     </div>
@@ -15,7 +15,9 @@
                             <img class="ticket-priority-img" ng-src="{{ticket.priority.image}}" />
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding-null">
-                            <a href="#/tickets/{{ticket.idTicket}}" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
+                            <!--<a href="#/tickets/{{ticket.idTicket}}" ui-sref="list" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>-->
+                            <a ui-sref="ticket({ticketId:ticket.idTicket })" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
+
                             <p class="ticket-title">{{ticket.title}}</p>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-null">
@@ -27,6 +29,3 @@
         </div>
     </div>
 </div>
-
-
-
