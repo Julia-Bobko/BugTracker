@@ -2,18 +2,16 @@
 moduleApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/tickets');
     $stateProvider
-        .state('/login', {
-            templateUrl: 'app/partials/login.html',
-            controller: 'LoginCtrl'
-        }
-        )
-        .state('/tickets', {
+        .state('tickets', {
+            url: '/tickets',
             templateUrl: 'app/partials/ticketsList.html',
-            controller: 'TicketsListCtrl'
+            controller: 'TicketCtrl'
         })
-           .state('/tickets/:ticketId', {
-               templateUrl: 'app/partials/ticketDetail.html',
-               controller: 'TicketDetailCtrl'
-           });
+        .state('ticket', {
+            url: '/tickets/:ticketId',
+            templateUrl: 'app/partials/ticketDetail.html',
+            controller: 'TicketCtrl'
+        })     
+        .state('about', {           
+        });
 });
-
