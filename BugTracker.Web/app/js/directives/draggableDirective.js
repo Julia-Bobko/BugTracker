@@ -7,13 +7,11 @@ dragDrop.directive('draggable', function () {
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('Text', this.id);
             e.dataTransfer.setData('div', this.parentElement.id);
-            this.classList.add('drag');
-            setEqualHeight();
+            this.classList.add('drag');          
             return false;
         }, false);
         el.addEventListener('dragend', function (e) {
-            this.classList.remove('drag');
-            setEqualHeight();
+            this.classList.remove('drag');          
             return false;
         }, false);
     };

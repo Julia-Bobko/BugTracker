@@ -48,6 +48,15 @@
     float: left;
     width: 100%;
     background-color: #F5F5F5;
+    padding-bottom: 20000px;
+    margin-bottom: -20000px;
+}
+
+.p-height {
+    height: 35px;
+}
+.div-overflow {
+    overflow: hidden;
 }
 
 .item {

@@ -2,9 +2,9 @@
     <div class="panel-heading h2">
         {{tickets[1].sprint.description}}
     </div>
-    <div class="row">
+    <div class="row div-overflow">
         <div ng-repeat="status in statuses" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status">
-            <p style="height: 35px;">{{status.title}} </p>
+            <p class="p-height">{{status.title}} </p>
             <div class="bin" id="{{status.title}}" droppable>
                 <div class="move" ng-repeat="ticket in tickets | filter :{status:{id:status.id,title:status.title}}" draggable id="{{ticket.idTicket}}">
                     <div class="div-left" ng-class="{red : ticket.type.title=='Bug', agua: ticket.type.title=='Task'}" id="{{ticket.type.title}}">
@@ -15,9 +15,7 @@
                             <img class="ticket-priority-img" ng-src="{{ticket.priority.image}}" />
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 padding-null">
-                            <!--<a href="#/tickets/{{ticket.idTicket}}" ui-sref="list" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>-->
-                            <a ui-sref="ticket({ticketId:ticket.idTicket })" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
-
+                             <a ui-sref="ticket({ticketId:ticket.idTicket })" ng-class="ticket.status.title=='Done'? 'done' : '' ">{{ticket.idTicket}}</a>
                             <p class="ticket-title">{{ticket.title}}</p>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 padding-null">
@@ -29,3 +27,5 @@
         </div>
     </div>
 </div>
+
+
