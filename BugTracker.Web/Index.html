@@ -2,7 +2,6 @@
 <html ng-app="moduleApp">
 <head>
     <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="app/js/angular.js"></script>
     <script src="app/js/angular-ui-router.min.js"></script>
     <script src="app/js/app.js"></script>
@@ -11,10 +10,10 @@
     <link href="app/css/bootstrap.min.css" rel="stylesheet" />
     <link href="app/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="app/css/main.css" rel="stylesheet" />
-    <script src="app/js/utility.js"></script>   
     <script src="app/js/controllers/controller.js"></script>
     <script src="app/js/controllers/statusController.js"></script>
     <script src="app/js/controllers/ticketController.js"></script>
+    <script src="app/js/controllers/navController.js"></script>
     <script src="app/js/services/ticketService.js"></script>
     <script src="app/js/services/statusService.js"></script>
 </head>
@@ -22,14 +21,14 @@
     <div>
         <div class="panel-heading panel-border"> </div>
         <div class="nav-fixed">
-            <div class="nav-absolute">
-                <a ui-sref="about"><img class="img-width" src="app/img/s.jpg" /></a>
-                <a ui-sref="about" class="a-border-bottom"><img src="app/img/q.jpg" /> </a>
-                <a ui-sref="tickets"><img src="app/img/w.jpg" /> </a>
-                <a ui-sref="about"><img src="app/img/e.jpg" /> </a>
-                <a ui-sref="about"><img src="app/img/r.jpg" /> </a>
-                <a ui-sref="about"><img src="app/img/y.jpg" /> </a>
-                <a ui-sref="about" class="a-border-bottom"> <img src="app/img/u.jpg" /> </a>
+            <div class="nav-absolute" ng-controller="NavCtrl">
+                <a><img class="img-width" src="app/img/s.jpg" /></a>
+                <a ui-sref="path1" ng-class="{selectedItem: isActive('/path1')}" class=" a-border-bottom"><img src="app/img/q.jpg" /> </a>
+                <a ui-sref="tickets" ng-class="{selectedItem: isActive('/tickets')}"><img src="app/img/w.jpg" /> </a>
+                <a ui-sref="path2" ng-class="{selectedItem: isActive('/path2')}"><img src="app/img/e.jpg" /> </a>
+                <a ui-sref="path3" ng-class="{selectedItem: isActive('/path3')}"><img src="app/img/r.jpg" /> </a>
+                <a ui-sref="path4" ng-class="{selectedItem: isActive('/path4')}"><img src="app/img/y.jpg" /> </a>
+                <a class="a-border-bottom"> <img src="app/img/u.jpg" /> </a>
                 <a class="a-futer"><img src="app/img/a.jpg" /> </a>
             </div>
         </div>
