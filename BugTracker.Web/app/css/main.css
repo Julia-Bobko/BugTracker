@@ -55,6 +55,7 @@
 .p-height {
     height: 35px;
 }
+
 .div-overflow {
     overflow: hidden;
 }
@@ -125,4 +126,19 @@
 
 .div-margin {
     margin-left: 90px;
+}
+
+.selectedItem {
+    background: black;
+    display: block;
+}
+
+
+.nav-absolute img {
+    opacity: 0.9;
+}
+
+.nav-absolute a:hover {
+    background: black;
+    display: block;
 }
