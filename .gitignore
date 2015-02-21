@@ -46,7 +46,9 @@ Temporary Items
 *.dll
 *.pdb
 *.txt
+*.suo
+*\buwer\*
 *.cache
 *TemporaryGeneratedFile*.cs
 *dll.config
-*.suo
+
