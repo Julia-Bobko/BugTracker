@@ -90,7 +90,7 @@
 }
 
 .panel-border {
-    height: 80px;
+    height: 50px;
     border-bottom: 2px solid black;
 }
 
@@ -98,7 +98,7 @@
     bottom: 0px;
     position: fixed;
     top: 0;
-    top: 80px;
+    top: 50px;
 }
 
 .nav-absolute {
@@ -125,7 +125,7 @@
 }
 
 .div-margin {
-    margin-left: 90px;
+    margin-left: 70px;
 }
 
 .selectedItem {
@@ -141,4 +141,120 @@
 .nav-absolute a:hover {
     background: black;
     display: block;
+}
+
+.content-margin {
+    margin: 25px;
+}
+
+.heading-color {
+    background: #EDECEC;
+    margin: 0px;
+    padding: 25px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#menu-options li {
+    padding: 4px 10px;
+    background-color: #F5F5F5;
+}
+
+body {
+    line-height: 1.42857142857143;
+}
+
+.span-property {
+    float: left;
+    margin-left: -100px;
+    color: #707070;
+    font-weight: normal;
+}
+
+.property-item {
+    padding: 0px 5px 0px 100px;
+    margin: 10px;
+}
+
+.img-people {
+    width: 24px;
+    height: 24px;
+}
+
+.fast-action {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    padding: 10px;
+}
+
+.menu-action-float {
+    padding-left: 10px;
+    float: left;
+}
+
+    .menu-action-float img {
+        height: 16px;
+    }
+
+#menu-options a {
+    color: black;
+}
+
+.margin-null {
+    margin: 0px;
+}
+
+#ticketInfo h2 {
+    font-size: inherit;
+    font-weight: bold;
+    float: left;
+    margin: 0px 10px;
+}
+
+#ticketInfo hr {
+    margin: 7px 10px;
+}
+
+#ticketInfo {
+    padding-left: 23px;
+}
+
+.ticket-description {
+    padding: 15px;
+    padding-left: 25px;
+}
+
+.ticket-comment {
+    padding: 15px;
+    padding-left: 25px;
+}
+
+.nav-comment {
+    padding: 5px 15px;
+}
+
+#textComment {
+    width: 100%;
+    height: 150px;
+}
+
+.margin-left {
+    margin-left: 15px;
+}
+
+.display-block {
+    display: block;
+}
+
+.border-radius {
+    border-radius: 2em;
+    background: rgb(223, 217, 217);
+    padding: 1px 8px;
+}
+
+.view-on-board {
+    float: left;
+    margin-left: -100px;
 }
