@@ -1,0 +1,13 @@
+﻿<div class="nav-fixed">
+    <div class="nav-absolute" ng-controller="NavCtrl">
+        <a><img class="img-width" src="app/img/s.jpg" /></a>
+        <a ui-sref=".path1" ng-class="{selectedItem: isActive('/path1')}" class=" a-border-bottom"><img src="app/img/q.jpg" /> </a>
+        <a ui-sref=".tickets" ng-class="{selectedItem: isActive('/tickets')}"><img src="app/img/w.jpg" /> </a>
+        <a ui-sref=".path2" ng-class="{selectedItem: isActive('/path2')}"><img src="app/img/e.jpg" /> </a>
+        <a ui-sref=".path3" ng-class="{selectedItem: isActive('/path3')}"><img src="app/img/r.jpg" /> </a>
+        <a ui-sref=".path4" ng-class="{selectedItem: isActive('/path4')}"><img src="app/img/y.jpg" /> </a>
+        <a class="a-border-bottom"> <img src="app/img/u.jpg" /> </a>
+        <a class="a-futer"><img src="app/img/a.jpg" /> </a>
+    </div>
+</div>
+<div class="div-margin" ui-view></div>

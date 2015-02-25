@@ -1,3 +1,157 @@
-﻿<p>{{ticket.title}}</p>
-<p>{{ticket.status.title}}</p>
-<p>{{ticket.status.id}}</p>
+﻿<div>
+    <div class="panel-heading h2 heading-color">
+        {{ticket.title}}
+    </div>
+    <div class="fast-action">
+        <div id="menu-options">
+            <ul class="menu-action-float">
+                <li class="btn btn-default">
+                    <a>
+                        <span><img src="app/img/edit.jpg" /></span>
+                        <span>Edit</span>
+                    </a>
+                </li>
+                <li class="btn btn-default">
+                    <a ng-click="showComment()">
+                        <span><img src="app/img/comment.jpg" /></span>
+                        <span>Сomment</span>
+                    </a>
+                </li>
+                <li class="btn btn-default">
+                    <a>
+                        <span>Assign</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="btn-group">
+                <li class="btn btn-default">
+                    <a>
+                        <span>To Do</span>
+                    </a>
+                </li>
+                <li class="btn btn-default">
+                    <a>
+                        <span>In Progress</span>
+                    </a>
+                </li>
+                <li class="btn btn-default dropdown-toggle">
+                    Worklow
+                    <span class="caret"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="ticketInfo" class="row">
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 margin-null">
+            <div class="row">
+                <h2> Details </h2>
+                <hr />
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="property-item">
+                        <span class="span-property">Type:</span>
+                        <span>
+                            <img ng-src="{{ticket.type.image}}" />
+                            {{ticket.type.title}}
+                        </span>
+                    </div>
+                    <div class="property-item">
+                        <span class="span-property">Priority:</span>
+                        <img ng-src="{{ticket.priority.image}}" />
+                        <span>{{ticket.priority.title}}</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="span-property">Labels:</span>
+                        <span>{{ticket.labels}}</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="span-property">Sprint:</span>
+                        <span>{{ticket.sprint.description}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="property-item">
+                        <span class="span-property">Status:</span>
+                        <span>{{ticket.status.title}}</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="span-property">Resolution:</span>
+                        <span>{{ticket.resolution.title}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Description</h2>
+                <hr />
+                <div class="ticket-description">{{ticket.description}}</div>
+            </div>
+            <div class="row">
+                <h2> Activity </h2>
+                <hr />
+                <div class="ticket-comment">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a class="nav-comment">Comments</a></li>
+                    </ul>
+                    <div ng-repeat="comment in ticket.comments">
+                        {{comment.comments}}
+                        <br />
+                    </div>
+                    <div ng-if='isComment' ng-controller="CommentCtrl">
+                        <hr />
+                        <span>Comment</span>
+                        <textarea id="textComment" ng-model="comment"> </textarea>
+                        <a ng-click="addComment()" class="btn btn-default">Add</a>
+                        <a ng-click="hideComment()">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 margin-null">
+            <h2> People </h2><hr />
+            <div class="row  margin-left">
+                <div class="property-item">
+                    <span class="span-property">Assignee:</span>
+                    <img class="img-people" ng-src="{{ticket.assignee.image}}" />
+                    <span>{{ticket.assignee.fullName}}</span>
+                    <a class="display-block">Assing to me</a>
+                </div>
+                <div class="property-item">
+                    <span class="span-property">Reporter:</span>
+                    <img class="img-people" ng-src="{{ticket.reporter.image}}" />
+                    <span>{{ticket.reporter.fullName}}</span>
+                </div>
+                <div class="property-item">
+                    <span class="span-property">Votes:</span>
+                    <span class="border-radius">{{ticket.votes}}</span>
+                    <a>Vote for this issue</a>
+                </div>
+            </div>
+            <h2>Dates</h2>
+            <hr />
+            <div class="row margin-left">
+                <div class="property-item">
+                    <span class="span-property">Created:</span>
+                    <span>{{ticket.dateCreated | date:'dd/MMM/yy h:mm a'}}</span>
+                </div>
+                <div class="property-item">
+                    <span class="span-property">Updated:</span>
+                    <span>{{ticket.dateUpdated | date:'dd/MMM/yy h:mm a'}}</span>
+                </div>
+            </div>
+            <h2>Agile</h2>
+            <hr />
+            <div class="row margin-left">
+                <div class="property-item">
+                    <span class="span-property">Active Sprint:</span>
+                    <a>Sprint 1 - Back-end planning</a>
+                    <span>ends {{ticket.sprint.endDate | date:'dd/MMM/yy'}}</span>
+                </div>
+                <div class="property-item">
+                    <a class="view-on-board" ui-sref="menu.tickets"> View on Board</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
