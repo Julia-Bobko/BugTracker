@@ -9,7 +9,7 @@ namespace BugTracker.Repository
 {
     public class TicketRepository : ITicketRepository
     {
-        List<Ticket> tickets;
+        static List<Ticket> tickets;
         PeopleRepository peopleRepository;
         CommentRepository commentRepository;
         StatusRepository statusRepository;
@@ -19,8 +19,8 @@ namespace BugTracker.Repository
 
         TicketRepository()
         {
-            peopleRepository = new PeopleRepository();
             commentRepository = new CommentRepository();
+            peopleRepository = new PeopleRepository();
             statusRepository = new StatusRepository();
             resolutionRepository = new ResolutionRepository();
             typeTicketRepository = new TypeTicketRepository();
@@ -48,7 +48,7 @@ namespace BugTracker.Repository
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 3).First(),
-                Comments = commentRepository.comments.Where(x=> x.IdTicket == 1).ToList()                
+                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-1").ToList()                
             },
              new Ticket
             {
@@ -70,7 +70,7 @@ namespace BugTracker.Repository
                 Description = "rtjn mikk vfbg tarket nj",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
-                Comments = commentRepository.comments.Where(x=> x.IdTicket == 2).ToList() 
+                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-4").ToList() 
             },
              new Ticket
             {
@@ -92,7 +92,7 @@ namespace BugTracker.Repository
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
-                Comments = commentRepository.comments.Where(x=> x.IdTicket == 3).ToList() 
+                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-2").ToList() 
             },
             new Ticket
             {
@@ -114,7 +114,7 @@ namespace BugTracker.Repository
                 Description = "fghjhjkjr",
                 Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
                 Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
-                Comments = commentRepository.comments.Where(x=> x.IdTicket == 3).ToList() 
+                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-15").ToList() 
             }
 
         };
@@ -124,6 +124,14 @@ namespace BugTracker.Repository
         public static ITicketRepository getRepository()
         {
             return repo;
+        }
+
+        public void updateComment()
+        {
+            foreach (var item in tickets)
+            {
+                item.Comments = CommentRepository.comments.Where(x => x.IdTicket == item.idTicket).ToList();
+            }
         }
 
         public IEnumerable<Ticket> GetAll()
