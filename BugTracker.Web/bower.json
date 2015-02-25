@@ -1,0 +1,14 @@
+{
+  "name": "BugTracker.Web",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Julia-Bobko/BugTracker",
+  "authors": [
+    "Julia-Bobko <yulia.bobko@mail.ru>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "ui-router": "~0.2.13",
+    "angular": "~1.3.13"
+  }
+}
