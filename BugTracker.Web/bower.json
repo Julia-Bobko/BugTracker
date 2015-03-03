@@ -2,8 +2,15 @@
   "name": "BugTracker.Web",
   "version": "0.0.1",
   "homepage": "https://github.com/Julia-Bobko/BugTracker",
-  "authors": [
-    "Julia-Bobko <yulia.bobko@mail.ru>"
+    "authors": [
+        "Julia-Bobko <yulia.bobko@mail.ru>"
+    ],
+    "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "license": "MIT",
   "dependencies": {

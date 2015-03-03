@@ -14,7 +14,7 @@ namespace BugTracker.Repository
         {
             IdPeople =1,
             FullName ="Shitov",
-            Image = "app/img/1.jpg",
+            Image = "app/img/1.png",
             EmailAddress="shitov@mail.ru",
             Password="111"
         },
@@ -22,7 +22,7 @@ namespace BugTracker.Repository
         {
             IdPeople = 2,
             FullName ="Yarov",
-            Image = "app/img/2.jpg",
+            Image = "app/img/2.png",
             EmailAddress="yarov@mail.ru",
             Password="yarov"
         },
@@ -30,7 +30,7 @@ namespace BugTracker.Repository
         {
             IdPeople=3,
             FullName = "Сhernov",
-            Image = "app/img/3.jpg",
+            Image = "app/img/3.png",
             EmailAddress="Сhernov@mail.ru",
             Password="chernov"
         },
@@ -38,7 +38,7 @@ namespace BugTracker.Repository
         {
             IdPeople = 4,
             FullName = "Belyaeva",
-            Image = "app/img/4.jpg",
+            Image = "app/img/4.png",
             EmailAddress="belyaeva@mail.ru",
             Password="belyaeva"       
         },
@@ -46,7 +46,7 @@ namespace BugTracker.Repository
         {
             IdPeople = 5,
             FullName ="Schukin",
-            Image = "app/img/5.jpg",
+            Image = "app/img/5.png",
             EmailAddress="schukin@mail.ru",
             Password="schukin"
         }

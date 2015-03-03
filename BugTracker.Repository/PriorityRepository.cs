@@ -15,13 +15,13 @@ namespace BugTracker.Repository
            {
                Id=1,
                Title ="Major",
-               Image="app/img/major.jpg"
+               Image="app/img/major.png"
            },
            new Priority
            {
                Id=2,
                Title ="Minor",
-               Image="app/img/minor.jpg"
+               Image="app/img/minor.png"
            }         
        };
     }

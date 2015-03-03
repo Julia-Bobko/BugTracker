@@ -1,23 +1,20 @@
 ﻿angular.module('moduleApp').
-factory('ticketService', ['$http', '$q', function ($http, $q) {
+factory('ticketService', ['$http', function ($http) {
     return {
         getTickets: getTickets,
-        getTicket: getTicket
+        getTicket: getTicket,
+        updateTicket: updateTicket
     };
 
     function getTickets() {
-        var deferred = $q.defer();
-        $http.get('/api/ticket').success(function (data) {
-            deferred.resolve(data);
-        });
-        return deferred.promise;
+        return $http.get('/api/ticket');
     }
 
     function getTicket(ticketid) {
-        var deferred = $q.defer();
-        $http.get('/api/ticket/' + ticketid).success(function (data) {
-            deferred.resolve(data);
-        });
-        return deferred.promise;
+        return $http.get('/api/ticket/' + ticketid);
+    }
+
+    function updateTicket(ticket) {
+        return $http.put('/api/ticket/', ticket);
     }
 }]);

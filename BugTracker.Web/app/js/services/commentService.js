@@ -1,18 +1,10 @@
 ﻿angular.module('moduleApp').
-factory('commentService', ['$http', '$q', function ($http, $q) {
+factory('commentService', ['$http', function ($http) {
     return {
         addComment: addComment
     };
 
-    function addComment(comment, ticketId) {
-        var deferred = $q.defer();
-        var comments = {
-            IdTicket: ticketId,
-            Comments: comment
-        };
-        $http.post('/api/comment', comments).success(function (data) {
-            deferred.resolve(data);
-        });
-        return deferred.promise;
+    function addComment(comment) {
+        return $http.post('/api/comment', comment);
     }
 }]);

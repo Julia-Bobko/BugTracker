@@ -47,8 +47,7 @@ Temporary Items
 *.pdb
 *.txt
 *.suo
-*\buwer\*
 *.cache
 *TemporaryGeneratedFile*.cs
 *dll.config
-
+bower_components

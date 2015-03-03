@@ -15,13 +15,13 @@ namespace BugTracker.Repository
            {
                Id =1,
                Title="Task",
-               Image ="app/img/task.jpg"
+               Image ="app/img/task.png"
            },
             new TypeTicket 
            {
                Id =2,
                Title="Bug",
-               Image ="app/img/bug.jpg"
+               Image ="app/img/bug.png"
            }
        };
     }

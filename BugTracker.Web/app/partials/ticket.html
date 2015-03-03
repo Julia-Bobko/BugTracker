@@ -7,13 +7,13 @@
             <ul class="menu-action-float">
                 <li class="btn btn-default">
                     <a>
-                        <span><img src="app/img/edit.jpg" /></span>
+                        <span><img src="app/img/edit.png" /></span>
                         <span>Edit</span>
                     </a>
                 </li>
                 <li class="btn btn-default">
-                    <a ng-click="showComment()">
-                        <span><img src="app/img/comment.jpg" /></span>
+                    <a ng-click="toogleCommentEditor()">
+                        <span><img src="app/img/comment.png" /></span>
                         <span>Сomment</span>
                     </a>
                 </li>
@@ -95,12 +95,12 @@
                         {{comment.comments}}
                         <br />
                     </div>
-                    <div ng-if='isComment' ng-controller="CommentCtrl">
+                    <div ng-if='isShowCommentEditor' ng-controller="CommentCtrl">
                         <hr />
                         <span>Comment</span>
-                        <textarea id="textComment" ng-model="comment"> </textarea>
+                        <textarea id="textComment" ng-model="textComment"> </textarea>
                         <a ng-click="addComment()" class="btn btn-default">Add</a>
-                        <a ng-click="hideComment()">Cancel</a>
+                        <a ng-click="toogleCommentEditor()">Cancel</a>
                     </div>
                 </div>
             </div>

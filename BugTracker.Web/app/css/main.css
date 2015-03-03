@@ -258,3 +258,8 @@ body {
     float: left;
     margin-left: -100px;
 }
+
+[ng-drop] div{
+        position: relative;
+        z-index: 2;
+    }
