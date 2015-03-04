@@ -43,7 +43,7 @@ namespace BugTracker.Repository
         {
             comments.Add(comment);
             var ticket = TicketRepository.getRepository().GetAll().Where(x => x.idTicket == comment.IdTicket).First();
-            ticket.Comments = comments.Where(x => x.IdTicket == ticket.idTicket).ToList();           
+            ticket.Comments = comments.Where(x => x.IdTicket == ticket.idTicket).ToList();
         }
 
         public List<Comment> GetComments()

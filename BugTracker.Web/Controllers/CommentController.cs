@@ -13,7 +13,8 @@ namespace BugTracker.Web.Controllers
     {
         CommentRepository repo;
 
-        CommentController() {
+        CommentController()
+        {
             repo = new CommentRepository();
         }
         public void PostComment(Comment comment)

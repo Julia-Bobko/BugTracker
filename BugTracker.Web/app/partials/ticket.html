@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li class="btn btn-default">
-                    <a ng-click="toogleCommentEditor()">
+                    <a ng-click="clickComment()">
                         <span><img src="app/img/comment.png" /></span>
                         <span>Сomment</span>
                     </a>
@@ -91,17 +91,19 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a class="nav-comment">Comments</a></li>
                     </ul>
-                    <div ng-repeat="comment in ticket.comments">
-                        {{comment.comments}}
-                        <br />
-                    </div>
-                    <div ng-if='isShowCommentEditor' ng-controller="CommentCtrl">
-                        <hr />
-                        <span>Comment</span>
-                        <textarea id="textComment" ng-model="textComment"> </textarea>
-                        <a ng-click="addComment()" class="btn btn-default">Add</a>
-                        <a ng-click="toogleCommentEditor()">Cancel</a>
-                    </div>
+                    <div >
+                        <div ng-repeat="comment in ticket.comments">
+                            {{comment.comments}}
+                            <br />
+                        </div>
+                        <div ng-if='isShowCommentEditor' ng-controller="CommentCtrl">
+                            <hr />
+                            <span>Comment</span>
+                            <textarea id="textComment" ng-model="text"> </textarea>
+                            <a ng-click="addComment(text)" class="btn btn-default">Add</a>
+                            <a ng-click="clickComment()">Cancel</a>
+                        </div>
+                        </div>
                 </div>
             </div>
         </div>
