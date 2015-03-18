@@ -16,10 +16,10 @@ namespace BugTracker.Entities
         public Status Status { get; set; }
         public Resolution  Resolution { get; set; }
         public string Description { get; set; }
-        public People Assignee { get; set; }
-        public People Reporter { get; set; }
+        public User Assignee { get; set; }
+        public User Reporter { get; set; }
         public int Votes { get; set; }
-        public List<People> Watchers { get; set; }
+        public List<User> Watchers { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
         public List<Comment> Comments { get; set; }        

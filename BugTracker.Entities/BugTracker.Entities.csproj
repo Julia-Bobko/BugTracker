@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
-    <Compile Include="People.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Resolution.cs" />
     <Compile Include="Sprint.cs" />

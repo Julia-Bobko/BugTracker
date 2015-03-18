@@ -46,8 +46,9 @@ Temporary Items
 *.dll
 *.pdb
 *.txt
-*.suo
+BugTracker.v12.suo
 *.cache
 *TemporaryGeneratedFile*.cs
 *dll.config
 bower_components
+node_modules

@@ -1,4 +1,5 @@
-﻿<div>
+﻿
+<div>
     <div class="panel-heading h2 heading-color">
         {{ticket.title}}
     </div>
@@ -6,11 +7,11 @@
         <div id="menu-options">
             <ul class="menu-action-float">
                 <li class="btn btn-default">
-                    <a>
+                    <a ng-click="ticketModalUpdate('lg', ticket)">
                         <span><img src="app/img/edit.png" /></span>
                         <span>Edit</span>
                     </a>
-                </li>
+                </li>              
                 <li class="btn btn-default">
                     <a ng-click="clickComment()">
                         <span><img src="app/img/comment.png" /></span>
@@ -82,7 +83,7 @@
             <div class="row">
                 <h2>Description</h2>
                 <hr />
-                <div class="ticket-description">{{ticket.description}}</div>
+                <pre class="ticket-description">{{ticket.description}}</pre>
             </div>
             <div class="row">
                 <h2> Activity </h2>
@@ -91,7 +92,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a class="nav-comment">Comments</a></li>
                     </ul>
-                    <div >
+                    <div>
                         <div ng-repeat="comment in ticket.comments">
                             {{comment.comments}}
                             <br />
@@ -100,10 +101,10 @@
                             <hr />
                             <span>Comment</span>
                             <textarea id="textComment" ng-model="text"> </textarea>
-                            <a ng-click="addComment(text)" class="btn btn-default">Add</a>
+                            <a ng-click="addComment()" class="btn btn-default">Add</a>
                             <a ng-click="clickComment()">Cancel</a>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

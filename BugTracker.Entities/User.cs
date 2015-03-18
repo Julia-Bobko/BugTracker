@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Entities
 {
-    public class People
+    public class User
     {
-        public int IdPeople { get; set; }
+        public int IdUser { get; set; }
         public string FullName { get; set; }
         public string Image { get; set; }
         public string EmailAddress { get; set; }

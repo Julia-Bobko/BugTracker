@@ -10,7 +10,7 @@ namespace BugTracker.Repository
     public class TicketRepository : ITicketRepository
     {
         static List<Ticket> tickets;
-        PeopleRepository peopleRepository;
+        UserRepository userRepository;
         CommentRepository commentRepository;
         StatusRepository statusRepository;
         ResolutionRepository resolutionRepository;
@@ -20,7 +20,7 @@ namespace BugTracker.Repository
         TicketRepository()
         {
             commentRepository = new CommentRepository();
-            peopleRepository = new PeopleRepository();
+            userRepository = new UserRepository();
             statusRepository = new StatusRepository();
             resolutionRepository = new ResolutionRepository();
             typeTicketRepository = new TypeTicketRepository();
@@ -45,9 +45,9 @@ namespace BugTracker.Repository
                 Resolution = resolutionRepository.resolutions[0],
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
-                Description = "fghjhjkjr",
-                Assignee = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 3).First(),
+                Description = "This will help you organize the structure of your .net application to communicate with the API and the front-end.",
+                Assignee = userRepository.users.Where(x => x.IdUser == 1).First(),
+                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
                 Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-1").ToList()                
             },
              new Ticket
@@ -68,14 +68,14 @@ namespace BugTracker.Repository
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "rtjn mikk vfbg tarket nj",
-                Assignee = peopleRepository.people.Where(x => x.IdPeople == 2).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 1).First(),
+                Assignee = userRepository.users.Where(x => x.IdUser == 2).First(),
+                Reporter = userRepository.users.Where(x => x.IdUser == 1).First(),
                 Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-4").ToList() 
             },
              new Ticket
             {
                 idTicket = "GAR-2",
-                Title = "hjhjlklkm",
+                Title = "Domain/SSL for Grow up Application",
                 Type = typeTicketRepository.typeTickets[0],
                 Priority = priorityRepository.priorities[1],
                 Labels = "None",
@@ -90,14 +90,14 @@ namespace BugTracker.Repository
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
-                Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
+                Assignee = userRepository.users.Where(x => x.IdUser == 4).First(),
+                Reporter = userRepository.users.Where(x => x.IdUser == 5).First(),
                 Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-2").ToList() 
             },
             new Ticket
             {
-                idTicket = "GAR-15",
-                Title = "jkkm.,,",
+                idTicket = "GAR-3",
+                Title = "Create Gerber .Net API Framework to communicate with",
                 Type = typeTicketRepository.typeTickets[0],
                 Priority = priorityRepository.priorities[0],
                 Labels = "None",
@@ -112,8 +112,30 @@ namespace BugTracker.Repository
                 DateCreated = new DateTime(2015,01,19),
                 DateUpdated = new DateTime(2015,01,19),
                 Description = "fghjhjkjr",
-                Assignee = peopleRepository.people.Where(x => x.IdPeople == 4).First(),
-                Reporter = peopleRepository.people.Where(x => x.IdPeople == 5).First(),
+                Assignee = userRepository.users.Where(x => x.IdUser == 5).First(),
+                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
+                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-15").ToList() 
+            },
+            new Ticket
+            {
+                idTicket = "GAR-6",
+                Title = "Understand Quick start guide for gerber API",
+                Type = typeTicketRepository.typeTickets[1],
+                Priority = priorityRepository.priorities[1],
+                Labels = "None",
+                Sprint = new Sprint
+                {
+                    IdSprint=1,
+                    Description ="Sprint 1 Back-end planning",
+                    EndDate = new DateTime(2015,02,07)
+                },
+                Status = statusRepository.statuses[5],
+                Resolution = resolutionRepository.resolutions[0],
+                DateCreated = new DateTime(2015,01,19),
+                DateUpdated = new DateTime(2015,01,19),
+                Description = "fghjhjkjr",
+                Assignee = userRepository.users.Where(x => x.IdUser == 2).First(),
+                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
                 Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-15").ToList() 
             }
 
@@ -124,15 +146,7 @@ namespace BugTracker.Repository
         public static ITicketRepository getRepository()
         {
             return repo;
-        }
-
-        public void updateComment()
-        {
-            foreach (var item in tickets)
-            {
-                item.Comments = CommentRepository.comments.Where(x => x.IdTicket == item.idTicket).ToList();
-            }
-        }
+        }    
 
         public IEnumerable<Ticket> GetAll()
         {
@@ -163,7 +177,7 @@ namespace BugTracker.Repository
                 ticket.Description = item.Description;
                 ticket.Assignee = item.Assignee;
                 ticket.Resolution = item.Resolution;
-                ticket.Comments = item.Comments;
+                //ticket.Comments = item.Comments;
                 return true;
             }
             else if (ticket != null)

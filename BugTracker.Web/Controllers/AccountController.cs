@@ -11,13 +11,13 @@ namespace BugTracker.Web.Controllers
 {
     public class AccountController : ApiController
     {
-        PeopleRepository peopleRepository;
+        UserRepository peopleRepository;
         AccountController()
         {
-            peopleRepository = new PeopleRepository();
+            peopleRepository = new UserRepository();
         }
 
-        public void PostAccount(People people)
+        public void PostAccount(User people)
         {
             peopleRepository.CreateAccount(people);
         }

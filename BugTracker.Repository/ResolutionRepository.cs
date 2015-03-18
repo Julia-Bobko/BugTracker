@@ -22,5 +22,10 @@ namespace BugTracker.Repository
                 Title="Fixed"
             }
         };
+
+       public List<Resolution> GetResolution()
+       {
+           return resolutions;
+       }
     }
 }

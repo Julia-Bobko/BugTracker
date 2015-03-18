@@ -1,0 +1,73 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Edit Issue: {{ticket.idTicket}}</h3>
+</div>
+<div class="modal-body">
+    <form id="ticketEdit"class="form-horizontal">
+        <div class="form-group">
+            <label for="inputSummary" class="control-label col-xs-2">Summary</label>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" id="inputSummary" ng-model="ticket.title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectType" class="control-label col-xs-2">Issue Type</label>
+            <div class="col-xs-8">
+                <ui-select id="selectType" ng-model="ticket.type" theme="selectize" ng-disabled="disabled">
+                    <ui-select-match><img ng-src="{{$select.selected.image}}" /> {{$select.selected.title}} </ui-select-match>
+                    <ui-select-choices repeat="data in types | filter: $select.search">
+                        <img ng-src="{{data.image}}" />
+                        <span ng-bind-html="data.title | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>   
+        </div>
+        <div class="form-group">
+            <label for="selectPriority" class="control-label col-xs-2">Priority</label>           
+            <div class="col-xs-8">
+                <ui-select ng-model="ticket.priority" theme="selectize" ng-disabled="disabled">
+                    <ui-select-match><img ng-src="{{$select.selected.image}}" /> {{$select.selected.title}} </ui-select-match>
+                    <ui-select-choices repeat="data in priorities | filter: $select.search">
+                        <img ng-src="{{data.image}}" />
+                        <span ng-bind-html="data.title | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>   
+        </div>
+        <div class="form-group">
+            <label for="selectAssignee" class="control-label col-xs-2">Assignee</label>
+            <div class="col-xs-8">
+                <ui-select ng-model="ticket.assignee" theme="selectize" ng-disabled="disabled">
+                    <ui-select-match><img ng-src="{{$select.selected.image}}" /> {{$select.selected.fullName}} </ui-select-match>
+                    <ui-select-choices repeat="data in users | filter: $select.search">
+                        <img ng-src="{{data.image}}" />
+                        <span ng-bind-html="data.fullName | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+                <a>Assing to me</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectAssignee" class="control-label col-xs-2">Reporter</label>
+            <div class="col-xs-8">
+                <div class="form-control">
+                    <img class="small-img" ng-src="{{ticket.reporter.image}}" />
+                    <span>{{ticket.reporter.fullName}}</span>
+                </div>           
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-2">Description</label>
+            <div class="col-xs-8">
+                <div >
+                   <textarea class="description-text" ng-model="ticket.description"> </textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default background" ng-click="update(ticket)">Update</button>
+    <a ng-click="cancel()">Cancel</a>
+</div>
+
+

@@ -7,44 +7,44 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Repository
 {
-    public class PeopleRepository
+    public class UserRepository
     {
-        public List<People> people = new List<People>{
-        new People
+        public List<User> users = new List<User>{
+        new User
         {
-            IdPeople =1,
+            IdUser =1,
             FullName ="Shitov",
             Image = "app/img/1.png",
             EmailAddress="shitov@mail.ru",
             Password="111"
         },
-        new People 
+        new User 
         {
-            IdPeople = 2,
+            IdUser = 2,
             FullName ="Yarov",
             Image = "app/img/2.png",
             EmailAddress="yarov@mail.ru",
             Password="yarov"
         },
-        new People 
+        new User 
         {
-            IdPeople=3,
+            IdUser=3,
             FullName = "Сhernov",
             Image = "app/img/3.png",
             EmailAddress="Сhernov@mail.ru",
             Password="chernov"
         },
-        new People 
+        new User 
         {
-            IdPeople = 4,
+            IdUser = 4,
             FullName = "Belyaeva",
             Image = "app/img/4.png",
             EmailAddress="belyaeva@mail.ru",
             Password="belyaeva"       
         },
-        new People
+        new User
         {
-            IdPeople = 5,
+            IdUser = 5,
             FullName ="Schukin",
             Image = "app/img/5.png",
             EmailAddress="schukin@mail.ru",
@@ -52,24 +52,29 @@ namespace BugTracker.Repository
         }
        };
 
+        public List<User> GetUsers() 
+        {
+            return users;
+        }
+
         public bool IsUser(string fullname)
         {
-            var matches = people.Where(x => x.FullName == fullname);
+            var matches = users.Where(x => x.FullName == fullname);
             return matches.Count() > 0 ? true : false;
         }
 
-        public void CreateAccount(People user)
+        public void CreateAccount(User user)
         {
            if (!IsUser(user.FullName))
             {
-                user.IdPeople = people.Count + 1;
-                people.Add(user);               
+                user.IdUser = users.Count + 1;
+                users.Add(user);               
             }           
         }
 
         public bool LogIn(string fullName, string password) 
         {
-            var matches = people.Where(x => x.FullName == fullName && x.Password==password);
+            var matches = users.Where(x => x.FullName == fullName && x.Password==password);
             return matches.Count() > 0 ? true : false;          
         }
     }

@@ -24,5 +24,10 @@ namespace BugTracker.Repository
                Image ="app/img/bug.png"
            }
        };
+
+      public List<TypeTicket> GetTypeTicket()
+      {
+          return typeTickets;
+      }
     }
 }

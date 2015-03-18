@@ -24,5 +24,9 @@ namespace BugTracker.Repository
                Image="app/img/minor.png"
            }         
        };
+      public List<Priority> GetPriority()
+      {
+          return priorities;
+      }
     }
 }

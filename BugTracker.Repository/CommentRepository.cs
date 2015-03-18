@@ -23,17 +23,17 @@ namespace BugTracker.Repository
            },
             new Comment
            {
-               IdTicket = "GAR-4",
-               Comments = "podbur dfcdv cebres "
+               IdTicket = "GAR-3",
+               Comments = "There are no comments yet on this issue."
             },
              new Comment
            {
                IdTicket = "GAR-1",
-               Comments = "gvrexcuh kj jnopder "
+               Comments = "There are no comments yet on this issue."
             },
               new Comment
            {
-               IdTicket = "GAR-1",
+               IdTicket = "GAR-2",
                Comments = "begth ghjki asdec "
             }
        };
