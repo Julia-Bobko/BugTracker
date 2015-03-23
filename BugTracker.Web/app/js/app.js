@@ -1,4 +1,4 @@
-﻿var moduleApp = angular.module('moduleApp', ['ui.router', 'ngDraggable', 'ui.bootstrap.modalTicket']);
+﻿var moduleApp = angular.module('moduleApp', ['ui.router', 'ngDraggable','ui.bootstrap', 'ngSanitize', 'ui.select']);
 moduleApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/menu/tickets');
     $stateProvider

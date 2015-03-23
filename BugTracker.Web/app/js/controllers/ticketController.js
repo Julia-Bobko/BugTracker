@@ -19,7 +19,6 @@
         });
     };
 
-
     var toogleCommentEditor = function () {
         $scope.isShowCommentEditor = !$scope.isShowCommentEditor;
     }

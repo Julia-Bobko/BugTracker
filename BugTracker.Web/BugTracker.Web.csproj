@@ -101,7 +101,6 @@
     <Content Include="app\js\controllers\statusController.js" />
     <Content Include="app\js\controllers\ticketController.js" />
     <Content Include="app\js\controllers\ticketListController.js" />
-    <Content Include="app\js\directives\ngDraggable.js" />
     <Content Include="app\js\services\commentService.js" />
     <Content Include="app\js\services\priorityService.js" />
     <Content Include="app\js\services\resolutionService.js" />
@@ -148,6 +147,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\js\directives\" />
     <Folder Include="app\js\filters\" />
     <Folder Include="App_Data\" />
     <Folder Include="bower_components\" />

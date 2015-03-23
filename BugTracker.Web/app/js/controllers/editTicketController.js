@@ -1,5 +1,4 @@
-﻿angular.module('ui.bootstrap.modalTicket', ['ui.bootstrap', 'ngSanitize', 'ui.select']);
-angular.module('ui.bootstrap.modalTicket').controller('EditTicketCtrl', ['$scope', '$modalInstance', 'ticket', 'ticketService','typeTicketService', 'priorityService','userService', '$http', function ($scope, $modalInstance, ticket, ticketService, typeTicketService, priorityService, userService, $http) {
+﻿moduleApp.controller('EditTicketCtrl', ['$scope', '$modalInstance', 'ticket', 'ticketService', 'typeTicketService', 'priorityService', 'userService', '$http', function ($scope, $modalInstance, ticket, ticketService, typeTicketService, priorityService, userService, $http) {
     $scope.ticket = angular.copy(ticket);
 
     typeTicketService.getTypeTickets().then(function (res) {
