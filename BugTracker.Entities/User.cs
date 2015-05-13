@@ -13,5 +13,6 @@ namespace BugTracker.Entities
         public string Image { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }
+        public int IdType { get; set; }
     }
 }

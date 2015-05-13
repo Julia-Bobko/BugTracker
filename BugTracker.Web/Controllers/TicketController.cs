@@ -11,7 +11,12 @@ namespace BugTracker.Web.Controllers
 {
     public class TicketController : ApiController
     {
-        private ITicketRepository repo = TicketRepository.getRepository();
+        private TicketRepository repo;
+
+        TicketController()
+        {
+            repo = new TicketRepository();
+        }
 
         public IEnumerable<Ticket> GetAllTickets()
         {

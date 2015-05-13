@@ -60,14 +60,14 @@
                         <img ng-src="{{ticket.priority.image}}" />
                         <span>{{ticket.priority.title}}</span>
                     </div>
-                    <div class="property-item">
+                    <div class="property-item padding-bottom">
                         <span class="span-property">Labels:</span>
                         <span>{{ticket.labels}}</span>
                     </div>
-                    <div class="property-item">
+                    <!--<div class="property-item">
                         <span class="span-property">Sprint:</span>
                         <span>{{ticket.sprint.description}}</span>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="property-item">
@@ -92,12 +92,12 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a class="nav-comment">Comments</a></li>
                     </ul>
-                    <div>
-                        <div ng-repeat="comment in ticket.comments">
+                    <div ng-controller="CommentCtrl">
+                        <div ng-repeat="comment in comments">
                             {{comment.comments}}
                             <br />
                         </div>
-                        <div ng-if='isShowCommentEditor' ng-controller="CommentCtrl">
+                        <div ng-show='isShowCommentEditor'>
                             <hr />
                             <span>Comment</span>
                             <textarea id="textComment" ng-model="text"> </textarea>

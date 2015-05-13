@@ -17,6 +17,10 @@
     padding: 0px;
 }
 
+.padding-bottom {
+   padding: 0px 5px 20px 100px !important;
+}
+
 .status {
     padding-right: 0px;
 }
@@ -338,10 +342,10 @@ label, span, input {
 }
 
 pre {
-  background-color: white;
-  border: 1px solid white;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
+    background-color: white;
+    border: 1px solid white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
 }

@@ -8,7 +8,7 @@ namespace BugTracker.Entities
 {
    public class Comment
     {       
-        public string IdTicket { get; set; }
+        public int IdTicket { get; set; }
         public string Comments { get; set; }
     }
 }

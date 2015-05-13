@@ -4,189 +4,143 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
+using System.Data.SqlClient;
 
 namespace BugTracker.Repository
 {
     public class TicketRepository : ITicketRepository
     {
-        static List<Ticket> tickets;
-        UserRepository userRepository;
-        CommentRepository commentRepository;
-        StatusRepository statusRepository;
-        ResolutionRepository resolutionRepository;
-        TypeTicketRepository typeTicketRepository;
-        PriorityRepository priorityRepository;
-
-        TicketRepository()
-        {
-            commentRepository = new CommentRepository();
-            userRepository = new UserRepository();
-            statusRepository = new StatusRepository();
-            resolutionRepository = new ResolutionRepository();
-            typeTicketRepository = new TypeTicketRepository();
-            priorityRepository = new PriorityRepository();
-
-            tickets = new List<Ticket>
-        {
-            new Ticket
-            {
-                idTicket = "GAR-1",
-                Title = "Create Gerber .Net API Documentation",
-                Type = typeTicketRepository.typeTickets[0],
-                Priority = priorityRepository.priorities[0],
-                Labels = "None",
-                Sprint = new Sprint
-                {
-                    IdSprint=1,
-                    Description ="Sprint 1 Back-end planning",
-                    EndDate = new DateTime(2015,02,07)
-                },
-                Status = statusRepository.statuses[0],
-                Resolution = resolutionRepository.resolutions[0],
-                DateCreated = new DateTime(2015,01,19),
-                DateUpdated = new DateTime(2015,01,19),
-                Description = "This will help you organize the structure of your .net application to communicate with the API and the front-end.",
-                Assignee = userRepository.users.Where(x => x.IdUser == 1).First(),
-                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
-                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-1").ToList()                
-            },
-             new Ticket
-            {
-                idTicket = "GAR-4",
-                Title = "Add file.txt to site",
-                Type = typeTicketRepository.typeTickets[1],
-                Priority = priorityRepository.priorities[1],
-                Labels = "None",
-                Sprint = new Sprint
-                {
-                    IdSprint=1,
-                    Description ="Sprint 1 Back-end planning",
-                    EndDate = new DateTime(2015,02,07)
-                },
-                Status = statusRepository.statuses[3],
-                Resolution = resolutionRepository.resolutions[1],
-                DateCreated = new DateTime(2015,01,19),
-                DateUpdated = new DateTime(2015,01,19),
-                Description = "rtjn mikk vfbg tarket nj",
-                Assignee = userRepository.users.Where(x => x.IdUser == 2).First(),
-                Reporter = userRepository.users.Where(x => x.IdUser == 1).First(),
-                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-4").ToList() 
-            },
-             new Ticket
-            {
-                idTicket = "GAR-2",
-                Title = "Domain/SSL for Grow up Application",
-                Type = typeTicketRepository.typeTickets[0],
-                Priority = priorityRepository.priorities[1],
-                Labels = "None",
-                Sprint = new Sprint
-                {
-                    IdSprint=1,
-                    Description ="Sprint 1 Back-end planning",
-                    EndDate = new DateTime(2015,02,07)
-                },
-                Status = statusRepository.statuses[5],
-                Resolution = resolutionRepository.resolutions[1],
-                DateCreated = new DateTime(2015,01,19),
-                DateUpdated = new DateTime(2015,01,19),
-                Description = "fghjhjkjr",
-                Assignee = userRepository.users.Where(x => x.IdUser == 4).First(),
-                Reporter = userRepository.users.Where(x => x.IdUser == 5).First(),
-                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-2").ToList() 
-            },
-            new Ticket
-            {
-                idTicket = "GAR-3",
-                Title = "Create Gerber .Net API Framework to communicate with",
-                Type = typeTicketRepository.typeTickets[0],
-                Priority = priorityRepository.priorities[0],
-                Labels = "None",
-                Sprint = new Sprint
-                {
-                    IdSprint=1,
-                    Description ="Sprint 1 Back-end planning",
-                    EndDate = new DateTime(2015,02,07)
-                },
-                Status = statusRepository.statuses[5],
-                Resolution = resolutionRepository.resolutions[0],
-                DateCreated = new DateTime(2015,01,19),
-                DateUpdated = new DateTime(2015,01,19),
-                Description = "fghjhjkjr",
-                Assignee = userRepository.users.Where(x => x.IdUser == 5).First(),
-                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
-                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-15").ToList() 
-            },
-            new Ticket
-            {
-                idTicket = "GAR-6",
-                Title = "Understand Quick start guide for gerber API",
-                Type = typeTicketRepository.typeTickets[1],
-                Priority = priorityRepository.priorities[1],
-                Labels = "None",
-                Sprint = new Sprint
-                {
-                    IdSprint=1,
-                    Description ="Sprint 1 Back-end planning",
-                    EndDate = new DateTime(2015,02,07)
-                },
-                Status = statusRepository.statuses[5],
-                Resolution = resolutionRepository.resolutions[0],
-                DateCreated = new DateTime(2015,01,19),
-                DateUpdated = new DateTime(2015,01,19),
-                Description = "fghjhjkjr",
-                Assignee = userRepository.users.Where(x => x.IdUser == 2).First(),
-                Reporter = userRepository.users.Where(x => x.IdUser == 3).First(),
-                Comments = CommentRepository.comments.Where(x=> x.IdTicket == "GAR-15").ToList() 
-            }
-
-        };
-        }
-        private static TicketRepository repo = new TicketRepository();
-
-        public static ITicketRepository getRepository()
-        {
-            return repo;
-        }    
+        private string ConnectionString = "Data Source=juli;Initial Catalog=bagTrackerDB;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
 
         public IEnumerable<Ticket> GetAll()
         {
-            return tickets;
+            using (var conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                var listTickets = conn.Query<Ticket, TypeTicket, Priority, Status, Resolution, User, User, Ticket>(@"
+                                                                                                                SELECT t.idTicket, t.title, 
+                                                                                                                typ.id, typ.title, typ.image,
+                                                                                                                p.id, p.title, p.image,                                                                                                                
+                                                                                                                s.id, s.title,
+                                                                                                                r.id, r.title,
+                                                                                                                a.idUser, a.fullname, a.image,
+                                                                                                                rep.idUser, rep.fullname, rep.image    
+                                                                                                                FROM tickets t 
+                                                                                                                INNER JOIN types typ ON typ.id = t.idType
+                                                                                                                INNER JOIN priorities p ON t.idPriority = p.id
+                                                                                                                INNER JOIN statuses s ON t.idStatus = s.id
+                                                                                                                INNER JOIN resolutions r ON t.idResolution = r.id 
+                                                                                                                INNER JOIN users a ON a.idUser = t.idAssignee
+                                                                                                                INNER JOIN users rep ON rep.idUser = t.idReporter ",
+                                                                                                                (t, types, p, s, r, a, reporter) =>
+                                                                                                                {
+                                                                                                                    t.Type = types;
+                                                                                                                    t.Priority = p;
+                                                                                                                    t.Status = s;
+                                                                                                                    t.Resolution = r;
+                                                                                                                    t.Assignee = a;
+                                                                                                                    t.Reporter = reporter;
+                                                                                                                    return t;
+                                                                                                                },
+                                                                                                                splitOn: "Id, Id, Id, Id, IdUser, IdUser");
+                conn.Close();
+                return listTickets;
+            }
+
+            // return tickets;
         }
 
         public Ticket Get(string id)
         {
-            var matches = tickets.Where(x => x.idTicket == id);
-            return matches.Count() > 0 ? matches.First() : null;
+            //var matches = tickets.Where(x => x.idTicket == id);
+            //return matches.Count() > 0 ? matches.First() : null;
+            var sql = String.Format(@"SELECT t.idTicket, t.title, t.description,
+                                             typ.id, typ.title, typ.image,
+                                             p.id, p.title, p.image,                                                                                                                
+                                             s.id, s.title,
+                                             r.id, r.title,
+                                             a.idUser, a.fullname, a.image,
+                                             rep.idUser, rep.fullname, rep.image    
+                                      FROM tickets t 
+                                             INNER JOIN types typ ON typ.id = t.idType
+                                             INNER JOIN priorities p ON t.idPriority = p.id
+                                             INNER JOIN statuses s ON t.idStatus = s.id
+                                             INNER JOIN resolutions r ON t.idResolution = r.id 
+                                             INNER JOIN users a ON a.idUser = t.idAssignee
+                                             INNER JOIN users rep ON rep.idUser = t.idReporter
+WHERE t.idTicket = @id");
+            using (var conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                var ticket = conn.Query<Ticket, TypeTicket, Priority, Status, Resolution, User, User, Ticket>(sql, (t, types, p, s, r, a, reporter) =>
+                                                                                                                       {
+                                                                                                                           t.Type = types;
+                                                                                                                           t.Priority = p;
+                                                                                                                           t.Status = s;
+                                                                                                                           t.Resolution = r;
+                                                                                                                           t.Assignee = a;
+                                                                                                                           t.Reporter = reporter;
+                                                                                                                           return t;
+                                                                                                                       }, new { id },
+                                                                                                                splitOn: "Id, Id, Id, Id, IdUser, IdUser").FirstOrDefault();
+                conn.Close();
+                return ticket;
+            }
         }
 
         public bool Update(Ticket item)
         {
-            Ticket ticket = Get(item.idTicket);
-            if (ticket != null && item.Status.Id != 0)
+            //    Ticket ticket = Get(item.idTicket);
+            //    if (ticket != null && item.Status.IdStatus != 0)
+            //    {
+            //        ticket.Title = item.Title;
+            //        ticket.TitleType = item.TitleType;
+            //        ticket.TitlePriority = item.TitlePriority;
+            //        ticket.Labels = item.Labels;
+            //        ticket.Sprint = item.Sprint;
+            //        ticket.Status = item.Status;
+            //        ticket.TitleResolution = item.TitleResolution;
+            //        ticket.Reporter = item.Reporter;
+            //        ticket.DateCreated = item.DateCreated;
+            //        ticket.DateUpdated = item.DateUpdated;
+            //        ticket.Description = item.Description;
+            //        ticket.Assignee = item.Assignee;
+            //        ticket.TitleResolution = item.TitleResolution;
+            //        //ticket.Comments = item.Comments;
+            //        return true;
+            //    }
+            //    else if (ticket != null)
+            //    {
+            //        Status status = statusRepository.(item.GetStatusStatus.Title);
+            //        ticket.Status = statusRepository.statuses.Where(x => x.IdStatus == status.IdStatus).First();
+            //        return true;
+            //    }
+            //    else { return false; }
+
+            if (item.Title != null)
             {
-                ticket.Title = item.Title;
-                ticket.Type = item.Type;
-                ticket.Priority = item.Priority;
-                ticket.Labels = item.Labels;
-                ticket.Sprint = item.Sprint;
-                ticket.Status = item.Status;
-                ticket.Resolution = item.Resolution;
-                ticket.Reporter = item.Reporter;
-                ticket.DateCreated = item.DateCreated;
-                ticket.DateUpdated = item.DateUpdated;
-                ticket.Description = item.Description;
-                ticket.Assignee = item.Assignee;
-                ticket.Resolution = item.Resolution;
-                //ticket.Comments = item.Comments;
-                return true;
+                //                var sql = String.Format(@"INSERT INTO tickets (title, idType, idPriority, idResolution, description, idAssignee, idReporter) 
+                //                                             VALUES('{0}', {1}, {2}, {3}, {4}, {5}, {6})",
+                //                                       item.Title, item.Type.Id, item.Priority.Id, item.Resolution.Id, item.Description, item.Assignee.IdUser, item.Reporter.IdUser);
+                var sql = String.Format(@" UPDATE tickets SET title = '{0}', idType = {1}, idPriority = {2}, idResolution = {3}, idAssignee = {4}, idReporter = {5} WHERE idTicket = {6}",
+                    item.Title, item.Type.Id, item.Priority.Id, item.Resolution.Id, item.Assignee.IdUser, item.Reporter.IdUser, item.idTicket);
+                using (var conn = new SqlConnection(ConnectionString))
+                {
+                    var result = conn.Execute(sql);
+                    return result > 0 ? true : false;
+                }
             }
-            else if (ticket != null)
+            else
             {
-                Status status = statusRepository.GetStatus(item.Status.Title);
-                ticket.Status = statusRepository.statuses.Where(x => x.Id == status.Id).First();
-                return true;
+                var sql = String.Format(@" UPDATE tickets SET idStatus = {0} WHERE idTicket = {1}",
+                    item.Status.Id, item.idTicket);
+                using (var conn = new SqlConnection(ConnectionString))
+                {
+                    var result = conn.Execute(sql);
+                    return result > 0 ? true : false;
+                }
             }
-            else { return false; }
         }
     }
 }

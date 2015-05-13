@@ -3,22 +3,24 @@
         $scope.tickets = res.data
     });
 
-    $scope.onDropComplete = function (evt, idDropElement) {
-        if (idDropElement == "Done") {
-            evt.element[0].children[1].children[1].children[0].classList.add('done');
+    $scope.onDropComplete = function (evt, status) {
+        status = JSON.parse(status);
+        if (evt.data.status.title != status.title) {
+            if (status.title == "Done") {
+                evt.element[0].children[1].children[1].children[0].classList.add('done');
+            }
+            var ticket = {
+                idTicket: evt.data.idTicket,
+                Status: status
+            };
+            evt.data.status.title = status.title;
+            evt.data.status.id = status.id;
+            ticketService.updateTicket(ticket).then(function (data) {
+            });
         }
-        var dropElement = document.getElementById(idDropElement);
-        var ticket = {
-            idTicket: evt.data.idTicket,
-            Status: { "title": idDropElement }
-        };
-        dropElement.appendChild(evt.element[0]);
-        ticketService.updateTicket(ticket).then(function (data) {
-        });
     }
 
     $scope.onDragSuccess = function (evt) {
-        var a = evt.element[0].parentElement.id;
         if (evt.element[0].parentElement.id == "Done") {
             evt.element[0].children[1].children[1].children[0].classList.remove('done');
         }

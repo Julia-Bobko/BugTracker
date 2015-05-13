@@ -22,9 +22,14 @@ namespace BugTracker.Web.Controllers
             repo.AddComment(comment);
         }
 
-        public List<Comment> GetComments()
+        //public List<Comment> GetComments()
+        //{
+        //    return repo.GetComments();
+        //}
+        [Route("api/comment/GetComments/{idTicket}")]
+        public List<Comment> GetComments(int idTicket)
         {
-            return repo.GetComments();
+            return repo.GetComments(idTicket);
         }
     }
 }

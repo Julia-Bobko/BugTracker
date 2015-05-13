@@ -21,6 +21,11 @@ namespace BugTracker.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            //config.Routes.MapHttpRoute(
+            //    name: "FolderChildrenApi",
+            //    routeTemplate: "api/comment/GetComments/{idTicket}",
+            //    defaults: new { controller = "Comment", action = "GetComments" }
+            //);
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 

@@ -5,8 +5,8 @@
     <div class="row div-overflow">
         <div ng-repeat="status in statuses" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 status ">
             <p class="p-height">{{status.title}} </p>
-            <div class="bin" id="{{status.title}}" ng-drop="true" ng-drop-success="onDropComplete($event,'{{status.title}}')">
-                <div class="move" ng-repeat="ticket in tickets | filter :{status:{id:status.id,title:status.title}}" ng-drag-success="onDragSuccess($event)" ng-drag="true" ng-drag-data="ticket" id="{{ticket.idTicket}}">
+            <div class="bin" id="{{status.title}}" ng-drop="true" ng-drop-success="onDropComplete($event,'{{status}}')">
+                <div class="move" ng-repeat="ticket in tickets | filter :{status:{id:status.id}}" ng-drag-success="onDragSuccess($event)" ng-drag="true" ng-drag-data="ticket" id="{{ticket.idTicket}}">
                     <div class="div-left" ng-class="{red : ticket.type.title=='Bug', agua: ticket.type.title=='Task'}" id="{{ticket.type.title}}">
                     </div>
                     <div class="row div-ticket item">
